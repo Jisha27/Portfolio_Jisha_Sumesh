@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+@import "@fontsource/inter";
+@import "tailwindcss";
+
+@theme {
+  --font-dancing: "Dancing Script", cursive;
+}
+html {
+  scroll-behavior: smooth;
+  background-color: #010610;
+}
+
+:root {
+
+  --background: #010610;
+  --surface: #050B14;
+  --card-border: #1A2335;
+
+  --primary: #7C4DFF;
+  --primary-hover: #9D5CFF;
+  --primary-light: #8B5CF6;
+
+  --gradient-start: #5B5BFF;
+  --gradient-end: #B84EFF;
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #C7C7D1;
+  --text-muted: #9CA3AF;
+
+  --react-cyan: #00D8FF;
+  --mongodb-green: #4DB33D;
+  --node-green: #68A063;
+
+  --input-border: #2B3345;
+
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.02em;
+}
