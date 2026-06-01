@@ -19,9 +19,13 @@ export const About = ({ data }) => {
           <User />
           <span className="text-2xl">{data?.title}</span>
         </span>
-        <p className="w-full max-w-[600px] text-[var(--secondary)]">
-          {data?.description}
-        </p>
+        {
+          data?.description.map((paragraph, index) => (
+            <p key={index} className="mb-4">
+              {paragraph}
+            </p>
+          ))
+        }
         <span className="flex flex-wrap justify-between w-full max-w-[600px] gap-2">
           <span className="flex flex-row text-[10px] items-center border-[var(--primary)] border-1 rounded-3xl p-1 px-3 gap-2 ">
             <MapPin className="w-[10px] text-[var(--primary)0" />

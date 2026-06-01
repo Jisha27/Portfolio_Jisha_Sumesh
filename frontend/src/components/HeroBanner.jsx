@@ -38,7 +38,7 @@ return (
 
 <section
 className="
-h-screen
+min-h-screen md:h-screen
 flex
 flex-col
 lg:flex-row
