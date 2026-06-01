@@ -11,7 +11,7 @@ function App() {
   const [portfolioData, setPortfolioData] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/portfolio")
+    fetch("https://portfolio-backend-xijw.onrender.com/api/portfolio")
       .then((res) => res.json())
       .then((data) => setPortfolioData(data))
       .catch((error) => console.log(error));
