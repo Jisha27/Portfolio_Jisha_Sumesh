@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import BackendLoading from "./components/BackendLoading";
 
 function App() {
   const [portfolioData, setPortfolioData] = useState(null);
@@ -19,9 +20,7 @@ function App() {
 
   if (!portfolioData) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[var(--background)] text-white">
-        Loading...
-      </div>
+      <BackendLoading/>
     );
   }
   return (
