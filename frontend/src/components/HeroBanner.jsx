@@ -11,9 +11,28 @@ import {
  SiExpress
 } from "react-icons/si";
 import heroImg from '../assets/hero-image2.png'
+import toast from "react-hot-toast";
 
 
-const HeroBanner = () => {
+
+const HeroBanner = ({data}) => {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+
+    section?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+    const copyEmail = async () => {
+
+  await navigator.clipboard.writeText(
+    "jsumesh1998@gmail.com"
+  );
+
+  toast.success(
+   "Email copied!"
+  );
+};
 
 return (
 
@@ -31,6 +50,7 @@ py-20
 bg-[var(--background)]
 relative
 overflow-hidden
+py-0
 "
 >
 
@@ -39,7 +59,7 @@ overflow-hidden
 <div className="flex-1 z-10">
 
 <p className="text-4xl mb-2 text-[var(--text-secondary)]">
-Hi, I'm
+{data?.intro}
 </p>
 
 <h1
@@ -49,7 +69,7 @@ font-extrabold
 text-[var(--primary)]
 "
 >
-Jisha
+{data?.name}
 </h1>
 
 <h2
@@ -60,7 +80,7 @@ mt-4
 text-[var(--text-secondary)]
 "
 >
-MERN Stack Developer
+{data?.role}
 </h2>
 
 <p
@@ -71,9 +91,7 @@ max-w-lg
 leading-8
 "
 >
-I build full-stack web applications
-using MongoDB, Express.js,
-React.js and Node.js.
+{data?.description}
 </p>
 
 <div className="flex gap-5 mt-8">
@@ -89,8 +107,9 @@ to-[var(--gradient-end)]
 hover:scale-105
 transition
 "
+onClick={()=>scrollToSection("projects")}
 >
-View My Work
+{data?.button1}
 </button>
 
 <button
@@ -102,19 +121,58 @@ py-3
 rounded-xl
 text-[var(--text-secondary)]
 "
+onClick={()=>scrollToSection("contact")}
 >
-Contact Me
+{data?.button2}
 </button>
 
 </div>
 
 <div className="flex gap-5 mt-8 text-2xl">
 
-<FaGithub className="text-[var(--text-secondary)]"/>
+   <a
+    href={data.socials.github}
+    target="_blank"
+    rel="noopener noreferrer"
+   >
+    <FaGithub
+    className="
+    text-[var(--text-secondary)]
+    text-3xl
+    hover:text-[var(--primary)]
+    transition
+    "
+    />
+   </a>
 
-<FaLinkedin className="text-[var(--text-secondary)]"/>
+   <a
+    href={data.socials.linkedin}
+    target="_blank"
+    rel="noopener noreferrer"
+   >
+    <FaLinkedin
+    className="
+    text-[var(--text-secondary)]
+    text-3xl
+    hover:text-[var(--primary)]
+    transition
+    "
+    />
+   </a>
 
-<FaEnvelope className="text-[var(--text-secondary)]"/>
+   <button
+    href={data.socials.email}
+    onClick={copyEmail}
+   >
+    <FaEnvelope
+    className="
+    text-[var(--text-secondary)]
+    text-3xl
+    hover:text-[var(--primary)]
+    transition
+    "
+    />
+   </button>
 
 </div>
 

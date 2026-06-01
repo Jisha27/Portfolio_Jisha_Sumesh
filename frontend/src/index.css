@@ -39,3 +39,12 @@ body {
   font-family: "Inter", sans-serif;
   letter-spacing: -0.02em;
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

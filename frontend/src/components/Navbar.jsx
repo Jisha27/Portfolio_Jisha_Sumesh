@@ -1,8 +1,15 @@
-import React, { useState } from 'react'
-import { Hamburger, X } from 'lucide-react'
+import React, { useState } from "react";
+import { Hamburger, X } from "lucide-react";
 
 const Navbar = () => {
-  const [showTabs, setShowTabs] = useState(false)
+  const [showTabs, setShowTabs] = useState(false);
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+
+    section?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
   const navStyle = `
 cursor-pointer
 relative
@@ -21,38 +28,32 @@ after:transition-all
 after:duration-300
 
 hover:after:w-full
-`
+`;
 
   return (
-    <nav className="w-full text-white px-5 py-3">
-
+    <nav className="w-full text-white px-5 py-3 sticky top-0 z-50 bg-[var(--background)]">
       {/* Top Navbar */}
       <div className="flex justify-between items-center">
-
         <span className="font-dancing text-[10px] border border-[var(--primary)] rounded-full px-2 py-2">
           Jisha
         </span>
 
         {/* Desktop */}
         <div className="hidden md:flex gap-8">
-          <span className={navStyle}>About</span>
-          <span className={navStyle}>Skills</span>
-          <span className={navStyle}>Projects</span>
-          <span className={navStyle}>Contact</span>
+          <span className={navStyle} onClick={()=>scrollToSection("about")}>About</span>
+          <span className={navStyle} onClick={()=>scrollToSection("skills")}>Skills</span>
+          <span className={navStyle} onClick={()=>scrollToSection("projects")}>Projects</span>
+          <span className={navStyle} onClick={()=>scrollToSection("contact")}>Contact</span>
         </div>
 
         {/* Mobile Icon */}
-        <button
-          className="md:hidden"
-          onClick={() => setShowTabs(!showTabs)}
-        >
+        <button className="md:hidden" onClick={() => setShowTabs(!showTabs)}>
           {showTabs ? (
             <X className="text-[var(--primary)]" />
           ) : (
             <Hamburger className="text-[var(--primary)]" />
           )}
         </button>
-
       </div>
 
       {/* Mobile Dropdown */}
@@ -71,15 +72,14 @@ hover:after:w-full
           shadow-lg
           "
         >
-          <span>About</span>
-          <span>Skills</span>
-          <span>Projects</span>
-          <span>Contact</span>
+          <span onClick={()=>scrollToSection("about")}>About</span>
+          <span onClick={()=>scrollToSection("skills")}>Skills</span>
+          <span onClick={()=>scrollToSection("projects")}>Projects</span>
+          <span onClick={()=>scrollToSection("contact")}>Contact</span>
         </div>
       )}
-
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
