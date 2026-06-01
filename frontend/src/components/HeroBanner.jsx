@@ -46,11 +46,11 @@ items-center
 justify-between
 px-8
 lg:px-20
-py-20
+pt-20
+md:py-20
 bg-[var(--background)]
 relative
 overflow-hidden
-py-0
 "
 >
 
@@ -212,8 +212,10 @@ rounded-full
 <div
 className="
 absolute
-w-[500px]
-h-[500px]
+hidden
+md:flex
+md:w-[500px]
+md:h-[500px]
 border
 border-dashed
 border-[var(--primary)]
