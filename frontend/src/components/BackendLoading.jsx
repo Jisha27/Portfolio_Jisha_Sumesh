@@ -14,7 +14,7 @@ const BackendLoading = () => {
           </h3>
 
           <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-            My backend is waking up from its cozy little nap.
+           🚀 Getting things ready...
             This may take 2–3 minutes on the first visit.
           </p>
 
