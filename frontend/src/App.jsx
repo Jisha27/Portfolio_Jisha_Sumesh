@@ -6,11 +6,11 @@ import { Toaster } from "react-hot-toast";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
-import BackendLoading from "./components/BackendLoading";
+import {portData} from './components/PortfolioData'
 
 function App() {
-  const [portfolioData, setPortfolioData] = useState(null);
-
+  const [portfolioData, setPortfolioData] = useState(portData);
+   
   useEffect(() => {
     fetch("https://portfolio-backend-xijw.onrender.com/api/portfolio")
       .then((res) => res.json())
@@ -18,11 +18,7 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
-  if (!portfolioData) {
-    return (
-      <BackendLoading/>
-    );
-  }
+ 
   return (
     <>
       <Toaster position="top-center z-1000" />
